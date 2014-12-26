@@ -1,16 +1,16 @@
 {  
-   "name":"machinepack-boilerplate",
+   "name":"machinepack-gravatar",
    "version":"0.0.1",
-   "description":"YOUR_MACHINEPACK_NAME solves world peace.",
+   "description":"Communicate with the Gravatar api to get a gravatar image.",
    "keywords": [
       "machinepack",
-      "machines"
+      "machines",
+      "gravatar"
    ],
-   "author":"YOUR NAME",
+   "author":"Irl Nathan",
    "license":"MIT",
    "dependencies":{  
-      "machine": "^1.0.0",
-      "hat": "0.0.3"
+      "machine": "^1.0.0"
    },
    "repository":{  
       "type":"git",
@@ -19,7 +19,7 @@
    "machinepack":{  
       "machineDir":"machines",
       "machines":[  
-        "say-hello"
+        "get-gravatar-url"
       ]
    }
 }

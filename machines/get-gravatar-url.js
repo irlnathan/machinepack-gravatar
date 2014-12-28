@@ -87,10 +87,12 @@ module.exports = {
       return exits.error(e);
     }
 
+    // If this is a "secureRequest", use `https://`
     if (inputs.secureRequest) {
       return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
     }
 
+    // Otherwise just use `http://`
     return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
 
   }

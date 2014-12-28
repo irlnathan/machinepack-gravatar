@@ -78,10 +78,6 @@ module.exports = {
     }, function _isTruthy(val) { return !!val; });
 
 
-    // Build the gravatar hash from the provided email address
-    var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
-
-
     // Stringify the querystring parameters that will be sent to gravatar
     var stringifiedQsParams;
     try {
@@ -91,7 +87,8 @@ module.exports = {
       return exits.encodingFailed(e);
     }
 
-    // Compute the base url
+    // Build the gravatar hash from the provided email address and compute the base url
+    var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
     var gravatarBaseUrl = 'www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams;
 
     // If this is a "secureRequest", use `https://`

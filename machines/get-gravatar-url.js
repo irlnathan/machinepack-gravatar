@@ -87,13 +87,16 @@ module.exports = {
       return exits.error(e);
     }
 
+    // Compute the base url
+    var gravatarBaseUrl = 'www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams;
+
     // If this is a "secureRequest", use `https://`
     if (inputs.secureRequest) {
-      return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
+      return exits.success('https://'+gravatarBaseUrl);
     }
 
     // Otherwise just use `http://`
-    return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
+    return exits.success('http://'+gravatarBaseUrl);
 
   }
 

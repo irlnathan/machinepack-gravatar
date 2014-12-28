@@ -1,8 +1,8 @@
 module.exports = {
 
   friendlyName: 'Get gravatar URL',
-  description: 'Get the URL of a gravatar for a particular email address.',
-  extendedDescription: 'This machine returns a properly formatted URL to obtain a gravatar.',
+  description: 'Build the URL of a gravatar for a particular email address.',
+  extendedDescription: 'This encrypts the provided email address and returns a properly formatted URL which can be visited to obtain a Gravatar image.',
 
   inputs: {
     emailAddress: {
@@ -12,11 +12,11 @@ module.exports = {
     },
     gravatarSize: {
       example: '400',
-      description: 'The size of the gravatar (1-2048)'
+      description: 'The size of the gravatar in pixels (between 1 and 2048)'
     },
     defaultImage: {
       example: 'http://example.com/images/avatar.jpg',
-      description: 'The image if there\'s no associated image of email address.'
+      description: 'The image to use if a Gravatar image cannot be found.'
     },
     forceDefaultImage: {
       example: true,
@@ -24,7 +24,7 @@ module.exports = {
     },
     rating: {
       example: 'g',
-      description: 'The rating level that\'s acceptable for the gravatar image.'
+      description: 'The rating level that\'s acceptable for the gravatar image ("G", "PG", "R", etc.)'
     },
     secureRequest: {
       example: true,

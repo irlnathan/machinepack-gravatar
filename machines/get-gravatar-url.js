@@ -56,8 +56,8 @@ module.exports = {
 
     // Depedencies
     var Crypto = require('crypto');
-    var _ = require('lodash');
     var qs = require('querystring');
+    var _ = require('lodash');
 
     // Strip out any keys which don't have a truthy value so as not to confuse `qs.stringify`.
     var qsParams = _.pick({

@@ -88,7 +88,7 @@ module.exports = {
 
     // Pick out all keys that have a value
     var options = _.pick(options, function(val, key) {
-      return val
+      return val;
     });
 
     try {

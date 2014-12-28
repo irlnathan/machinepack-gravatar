@@ -37,7 +37,7 @@ module.exports = {
   exits: {
 
     error: {
-      description: 'Unexpected error occurred.',
+      description: 'Unexpected error occurred.'
     },
 
     success: {
@@ -89,9 +89,6 @@ module.exports = {
     if (inputs.secureRequest) {
 
       try {
-        // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
-        // when I log it?
-        // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
         return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
       }
       catch (e) {
@@ -100,9 +97,6 @@ module.exports = {
     }
 
     try {
-      // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
-      // when I log it?
-      // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
       return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
     }
     catch (e) {

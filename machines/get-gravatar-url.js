@@ -21,7 +21,7 @@ module.exports = {
     },
     forceDefaultImage: {
       example: true,
-      description: 'Force the default image for the gravatar.'
+      description: 'Force the default image for the gravatar (if for some reason you wanted to force the default image to always load... see https://en.gravatar.com/site/implement/images/#force-default)'
     },
     rating: {
       example: 'g',

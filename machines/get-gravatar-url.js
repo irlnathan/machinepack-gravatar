@@ -82,8 +82,8 @@ module.exports = {
       .update(inputs.emailAddress.toLowerCase().trim())
       .digest('hex');
     }
-    catch (error) {
-      return exits.error(error);
+    catch (e) {
+      return exits.error(e);
     }
 
     if (inputs.secureRequest) {
@@ -94,8 +94,8 @@ module.exports = {
         // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
         return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
       }
-      catch (error) {
-        return exits.error(new Error(error));
+      catch (e) {
+        return exits.error(e);
       }
     }
 
@@ -105,8 +105,8 @@ module.exports = {
       // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
       return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
     }
-    catch (error) {
-      return exits.error(new Error(error));
+    catch (e) {
+      return exits.error(e);
     }
 
   }

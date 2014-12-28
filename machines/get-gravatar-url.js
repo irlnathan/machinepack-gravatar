@@ -17,7 +17,7 @@ module.exports = {
     },
     defaultImage: {
       example: 'http://example.com/images/avatar.jpg',
-      description: 'The image to use if a Gravatar image cannot be found.'
+      description: 'The image to use if a Gravatar image cannot be found. Useful since it won\'t be clear whether a Gravatar cannot be found until after the image URL is requested.'
     },
     rating: {
       example: 'g',

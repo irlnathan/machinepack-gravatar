@@ -79,16 +79,7 @@ module.exports = {
 
 
     // Build the gravatar hash from the provided email address
-    var gravatarHash;
-    try {
-      gravatarHash =
-      Crypto.createHash('md5')
-      .update(inputs.emailAddress.toLowerCase().trim())
-      .digest('hex');
-    }
-    catch (e) {
-      return exits.couldNotCreateHash(e);
-    }
+    var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
 
     if (inputs.secureRequest) {
 

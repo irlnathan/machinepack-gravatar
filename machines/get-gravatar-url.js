@@ -12,7 +12,7 @@ module.exports = {
       required: true
     },
     gravatarSize: {
-      example: '400',
+      example: 400,
       description: 'The size of the gravatar in pixels (between 1 and 2048)'
     },
     defaultImage: {
@@ -64,7 +64,8 @@ module.exports = {
     var qsParams = _.pick({
 
       // "s" stands for gravatar "size"
-      s: inputs.gravatarSize,
+      // (cast to string if exists)
+      s: inputs.gravatarSize ? inputs.gravatarSize+'' : undefined,
 
       // "d" stands for "default image".
       // If defaultImage src was provided, encode it for use in a URI
@@ -75,7 +76,7 @@ module.exports = {
       f: inputs.forceDefaultImage ? 'y' : undefined,
 
       // "rating" refers to "G", "PG", "R", "X", etc.
-      rating: inputs.rating || ''
+      rating: inputs.rating || undefined
     }, function _isTruthy(val) { return !!val; });
 
 

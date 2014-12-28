@@ -93,13 +93,13 @@ module.exports = {
 
     var gravatarHash;
     try {
+      gravatarHash =
+      Crypto.createHash('md5')
+      .update(inputs.emailAddress.toLowerCase().trim())
+      .digest("hex");
 
-      gravatarHash = Crypto.createHash('md5')
-        .update(inputs.emailAddress.toLowerCase().trim())
-        .digest("hex");
-
-    } catch (error) {
-
+    }
+    catch (error) {
       return exits.error(error);
     }
 
@@ -114,7 +114,6 @@ module.exports = {
       catch (error) {
         return exits.error(new Error(error));
       }
-
     }
 
     try {
@@ -122,10 +121,10 @@ module.exports = {
       // when I log it?
       // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
       return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
-    } catch (error) {
+    }
+    catch (error) {
       return exits.error(new Error(error));
     }
-
 
   }
 

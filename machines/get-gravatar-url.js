@@ -55,49 +55,32 @@ module.exports = {
     var _ = require('lodash');
     var qs = require('querystring');
 
+    // Pick out only those keys which have a truthy value
+    var qsParams = _.pick({
 
-    inputs.gravatarSize = inputs.gravatarSize || '';
+      // "s" stands for gravatar "size"
+      s: inputs.gravatarSize || '',
 
-    inputs.defaultImage = inputs.defaultImage || '';
+      // "d" stands for "default image".
+      // If defaultImage src was provided, encode it for use in a URI
+      d: inputs.defaultImage ? encodeURIComponent(inputs.defaultImage) : '',
 
+      // "f" stands for "force default image".
+      // Set up the "y" that Gravatar expects to indicate we're "forcing" the default image.
+      f: inputs.forceDefaultImage ? 'y' : '',
 
-    if (inputs.defaultImage) {
-      inputs.defaultImage = encodeURIComponent(inputs.defaultImage);
-    }
-
-    inputs.forceDefaultImage = inputs.forceDefaultImage || '';
-
-
-    if (inputs.forceDefaultImage) {
-      inputs.forceDefaultImage = 'y';
-    }
-
-    inputs.rating = inputs.rating || '';
-
-    inputs.secureRequest = inputs.secureRequest || '';
+      // "rating" refers to "G", "PG", "R", "X", etc.
+      rating: inputs.rating || ''
+    }, function _isTruthy(val) { return !!val; });
 
 
-    inputs.secureRequest = inputs.secureRequest || '';
-
-    var options = {
-      s: inputs.gravatarSize,
-      d: inputs.defaultImage,
-      f: inputs.forceDefaultImage,
-      rating: inputs.rating
-    };
-
-    // Pick out all keys that have a value
-    options = _.pick(options, function(val, key) {
-      return val;
-    });
-
+    // Build the gravatar hash from the provided email address
     var gravatarHash;
     try {
       gravatarHash =
       Crypto.createHash('md5')
       .update(inputs.emailAddress.toLowerCase().trim())
-      .digest("hex");
-
+      .digest('hex');
     }
     catch (error) {
       return exits.error(error);
@@ -108,8 +91,8 @@ module.exports = {
       try {
         // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
         // when I log it?
-        // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
-        return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
+        // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
+        return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
       }
       catch (error) {
         return exits.error(new Error(error));
@@ -119,8 +102,8 @@ module.exports = {
     try {
       // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
       // when I log it?
-      // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
-      return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
+      // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(qsParams));
+      return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
     }
     catch (error) {
       return exits.error(new Error(error));

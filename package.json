@@ -1,25 +1,26 @@
-{  
-   "name":"machinepack-gravatar",
-   "version":"0.0.1",
-   "description":"Communicate with the Gravatar api to get a gravatar image.",
-   "keywords": [
-      "machinepack",
-      "machines",
-      "gravatar"
-   ],
-   "author":"Irl Nathan",
-   "license":"MIT",
-   "dependencies":{  
-      "machine": "^1.0.0"
-   },
-   "repository":{  
-      "type":"git",
-      "url":"YOUR_GITHUB REPO"
-   },
-   "machinepack":{  
-      "machineDir":"machines",
-      "machines":[  
-        "get-gravatar-url"
-      ]
-   }
+{
+  "name": "machinepack-gravatar",
+  "version": "0.0.1",
+  "description": "Communicate with the Gravatar api to get a gravatar image.",
+  "keywords": [
+    "machinepack",
+    "machines",
+    "gravatar"
+  ],
+  "author": "Irl Nathan",
+  "license": "MIT",
+  "dependencies": {
+    "machine": "^1.0.0",
+    "lodash": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "YOUR_GITHUB REPO"
+  },
+  "machinepack": {
+    "machineDir": "machines",
+    "machines": [
+      "get-gravatar-url"
+    ]
+  }
 }

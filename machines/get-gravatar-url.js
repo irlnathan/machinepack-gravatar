@@ -40,6 +40,10 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    encodingFailed: {
+      description: 'Could not encode/stringify query parameters for the Gravatar URL.'
+    },
+
     success: {
       description: 'The URL that can be used to display a gravatar.',
       example: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
@@ -84,7 +88,7 @@ module.exports = {
       stringifiedQsParams = qs.stringify(qsParams);
     }
     catch (e){
-      return exits.error(e);
+      return exits.encodingFailed(e);
     }
 
     // Compute the base url

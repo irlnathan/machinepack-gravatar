@@ -37,15 +37,11 @@ module.exports = {
   exits: {
 
     error: {
-
       description: '',
-
     },
 
     success: {
-
       description: 'The URL that can be used to display a gravatar.',
-
       example: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
     }
 
@@ -54,6 +50,7 @@ module.exports = {
 
   fn: function(inputs, exits) {
 
+    // Depedencies
     var Crypto = require('crypto');
     var _ = require('lodash');
     var qs = require('querystring');

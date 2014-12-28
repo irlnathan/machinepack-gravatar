@@ -59,19 +59,19 @@ module.exports = {
     var _ = require('lodash');
     var qs = require('querystring');
 
-    // Pick out only those keys which have a truthy value
+    // Strip out any keys which don't have a truthy value so as not to confuse `qs.stringify`.
     var qsParams = _.pick({
 
       // "s" stands for gravatar "size"
-      s: inputs.gravatarSize || '',
+      s: inputs.gravatarSize,
 
       // "d" stands for "default image".
       // If defaultImage src was provided, encode it for use in a URI
-      d: inputs.defaultImage ? encodeURIComponent(inputs.defaultImage) : '',
+      d: inputs.defaultImage ? encodeURIComponent(inputs.defaultImage) : undefined,
 
       // "f" stands for "force default image".
       // Set up the "y" that Gravatar expects to indicate we're "forcing" the default image.
-      f: inputs.forceDefaultImage ? 'y' : '',
+      f: inputs.forceDefaultImage ? 'y' : undefined,
 
       // "rating" refers to "G", "PG", "R", "X", etc.
       rating: inputs.rating || ''

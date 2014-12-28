@@ -40,6 +40,10 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    couldNotCreateHash: {
+      description: 'Could not create gravatar hash using the specified email address.'
+    },
+
     success: {
       description: 'The URL that can be used to display a gravatar.',
       example: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
@@ -83,7 +87,7 @@ module.exports = {
       .digest('hex');
     }
     catch (e) {
-      return exits.error(e);
+      return exits.couldNotCreateHash(e);
     }
 
     if (inputs.secureRequest) {

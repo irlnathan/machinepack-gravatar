@@ -19,10 +19,6 @@ module.exports = {
       example: 'http://example.com/images/avatar.jpg',
       description: 'The image to use if a Gravatar image cannot be found.'
     },
-    forceDefaultImage: {
-      example: true,
-      description: 'Force the default image for the gravatar (if for some reason you wanted to force the default image to always load... see https://en.gravatar.com/site/implement/images/#force-default)'
-    },
     rating: {
       example: 'g',
       description: 'The rating level that\'s acceptable for the gravatar image ("G", "PG", "R", etc.)'
@@ -71,9 +67,13 @@ module.exports = {
       // If defaultImage src was provided, encode it for use in a URI
       d: inputs.defaultImage ? encodeURIComponent(inputs.defaultImage) : undefined,
 
+      // Removed support for "forceDefaultImage"
+      // if this is important for some reason, it can be brought back.
+      // However it seems more confusing than anything else.
+      //
       // "f" stands for "force default image".
       // Set up the "y" that Gravatar expects to indicate we're "forcing" the default image.
-      f: inputs.forceDefaultImage ? 'y' : undefined,
+      // f: inputs.forceDefaultImage ? 'y' : undefined,
 
       // "rating" refers to "G", "PG", "R", "X", etc.
       rating: inputs.rating || undefined

@@ -25,7 +25,7 @@ module.exports = {
     },
     useHttps: {
       example: true,
-      description: 'If true will use "https:".'
+      description: 'Whether to build a secure URL ("https://".) Otherwise, "http://" will be used.'
     }
   },
 

@@ -77,22 +77,21 @@ module.exports = {
     // Build the gravatar hash from the provided email address
     var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
 
-    if (inputs.secureRequest) {
 
-      try {
-        return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
-      }
-      catch (e) {
-        return exits.error(e);
-      }
-    }
-
+    // Stringify the querystring parameters that will be sent to gravatar
+    var stringifiedQsParams;
     try {
-      return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(qsParams));
+      stringifiedQsParams = qs.stringify(qsParams);
     }
-    catch (e) {
+    catch (e){
       return exits.error(e);
     }
+
+    if (inputs.secureRequest) {
+      return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
+    }
+
+    return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams);
 
   }
 

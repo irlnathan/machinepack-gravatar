@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "YOUR_GITHUB REPO"
+    "url": "https://github.com/balderdashy/machinepack-gravatar"
   },
   "machinepack": {
     "machineDir": "machines",
     "machines": [
-      "get-gravatar-url"
+      "get-image-url"
     ]
   }
 }

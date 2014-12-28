@@ -1,8 +1,8 @@
 module.exports = {
 
-  friendlyName: 'Get gravatar URL',
-  description: 'Build the URL of a gravatar for a particular email address.',
-  extendedDescription: 'This encrypts the provided email address and returns a properly formatted URL which can be visited to obtain a Gravatar image.',
+  friendlyName: 'Get image url',
+  description: 'Build the URL of a gravatar image for a particular email address.',
+  extendedDescription: 'This encrypts the provided email address and returns a properly formatted URL which points to an image on Gravatar.  This can then be used as the `src` in an `<img>` tag, etc.',
   cacheable: true,
 
   inputs: {

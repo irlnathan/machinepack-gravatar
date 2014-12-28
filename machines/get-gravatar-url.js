@@ -100,7 +100,7 @@ module.exports = {
 
     } catch (error) {
 
-      return exists.error(error);
+      return exits.error(error);
     }
 
     if (inputs.secureRequest) {
@@ -110,10 +110,9 @@ module.exports = {
         // when I log it?
         // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
         return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
-      } catch (error) {
-
-        console.log(error);
-        return exits.error(new error(error));
+      }
+      catch (error) {
+        return exits.error(new Error(error));
       }
 
     }
@@ -124,9 +123,7 @@ module.exports = {
       // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
       return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
     } catch (error) {
-
-      console.log(error);
-      return exits.error(new error(error));
+      return exits.error(new Error(error));
     }
 
 

@@ -87,13 +87,14 @@ module.exports = {
     };
 
     // Pick out all keys that have a value
-    var options = _.pick(options, function(val, key) {
+    options = _.pick(options, function(val, key) {
       return val;
     });
 
+    var gravatarHash;
     try {
 
-      var gravatarHash = Crypto.createHash('md5')
+      gravatarHash = Crypto.createHash('md5')
         .update(inputs.emailAddress.toLowerCase().trim())
         .digest("hex");
 

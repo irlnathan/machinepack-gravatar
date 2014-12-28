@@ -13,7 +13,7 @@ module.exports = {
     },
     gravatarSize: {
       example: 400,
-      description: 'The size of the gravatar in pixels (between 1 and 2048)'
+      description: 'The height/width of the gravatar in pixels (between 1 and 2048)'
     },
     defaultImage: {
       example: 'http://example.com/images/avatar.jpg',

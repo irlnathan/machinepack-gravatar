@@ -1,12 +1,11 @@
-
 module.exports = {
-  
+
   friendlyName: 'Get gravatar URL',
   description: 'Get the URL of a gravatar for a particular email address.',
   extendedDescription: 'This machine returns a properly formatted URL to obtain a gravatar.',
 
   inputs: {
-    emailAddress: {      
+    emailAddress: {
       example: 'john@doe-enterprises.com',
       description: 'The email address of the gravatar.',
       required: true
@@ -40,33 +39,33 @@ module.exports = {
   exits: {
 
     error: {
-      
+
       description: '',
-      
+
     },
 
     success: {
-      
+
       description: 'The URL that can be used to display a gravatar.',
-      
+
       example: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
     }
 
   },
 
 
-  fn: function (inputs, exits) {
+  fn: function(inputs, exits) {
 
     var Crypto = require('crypto');
     var _ = require('lodash');
     var qs = require('querystring');
 
-    
+
     inputs.gravatarSize = inputs.gravatarSize || '';
 
     inputs.defaultImage = inputs.defaultImage || '';
 
-    
+
     if (inputs.defaultImage) {
       inputs.defaultImage = encodeURIComponent(inputs.defaultImage);
     }
@@ -75,8 +74,8 @@ module.exports = {
 
 
     if (inputs.forceDefaultImage) {
-       inputs.forceDefaultImage = 'y'; 
-      }
+      inputs.forceDefaultImage = 'y';
+    }
 
     inputs.rating = inputs.rating || '';
 
@@ -85,18 +84,23 @@ module.exports = {
 
     inputs.secureRequest = inputs.secureRequest || '';
 
-    var options = {s: inputs.gravatarSize, d: inputs.defaultImage, f: inputs.forceDefaultImage, rating: inputs.rating};
+    var options = {
+      s: inputs.gravatarSize,
+      d: inputs.defaultImage,
+      f: inputs.forceDefaultImage,
+      rating: inputs.rating
+    };
 
     // Pick out all keys that have a value
     var options = _.pick(options, function(val, key) {
       return val
-      });
+    });
 
     try {
 
-    var gravatarHash = Crypto.createHash('md5')
-      .update(inputs.emailAddress.toLowerCase().trim())
-      .digest("hex");
+      var gravatarHash = Crypto.createHash('md5')
+        .update(inputs.emailAddress.toLowerCase().trim())
+        .digest("hex");
 
     } catch (error) {
 
@@ -109,25 +113,25 @@ module.exports = {
         // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
         // when I log it?
         // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
-        return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+'?'+qs.stringify(options));
+        return exits.success('https://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
       } catch (error) {
 
-      console.log(error);
-        return exits.error(new error(error));        
+        console.log(error);
+        return exits.error(new error(error));
       }
 
     }
 
-      try {
-        // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
-        // when I log it?
-        // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
-        return exits.success('http://www.gravatar.com/avatar/'+gravatarHash+'?'+qs.stringify(options));
-      } catch (error) {
+    try {
+      // Show Mike this and ask why it doesn't show up as an error when it's returned via exits.error but shows up
+      // when I log it?
+      // return exits.success('https://www.gravatar.com/avatar/'+gravatarHash+s.stringify(options));
+      return exits.success('http://www.gravatar.com/avatar/' + gravatarHash + '?' + qs.stringify(options));
+    } catch (error) {
 
       console.log(error);
-        return exits.error(new error(error));        
-      }
+      return exits.error(new error(error));
+    }
 
 
   }

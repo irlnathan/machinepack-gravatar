@@ -23,7 +23,7 @@ module.exports = {
       example: 'g',
       description: 'The rating level that\'s acceptable for the gravatar image ("G", "PG", "R", etc.)'
     },
-    secureRequest: {
+    useHttps: {
       example: true,
       description: 'If true will use "https:".'
     }
@@ -93,11 +93,9 @@ module.exports = {
     var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
     var gravatarBaseUrl = 'www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams;
 
-    // If this is a "secureRequest", use `https://`
-    if (inputs.secureRequest) {
+    if (inputs.useHttps) {
       return exits.success('https://'+gravatarBaseUrl);
     }
-
     // Otherwise just use `http://`
     return exits.success('http://'+gravatarBaseUrl);
 

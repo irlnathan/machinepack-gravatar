@@ -37,7 +37,7 @@ module.exports = {
   exits: {
 
     error: {
-      description: '',
+      description: 'Unexpected error occurred.',
     },
 
     success: {

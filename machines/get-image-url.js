@@ -3,7 +3,7 @@ module.exports = {
   friendlyName: 'Get image URL',
   description: 'Build the URL of a gravatar image for a particular email address.',
   extendedDescription: 'This encrypts the provided email address and returns a properly formatted URL which points to an image on Gravatar.  This can then be used as the `src` in an `<img>` tag, etc.',
-  cacheable: true,
+  sync: true,
 
   inputs: {
     emailAddress: {

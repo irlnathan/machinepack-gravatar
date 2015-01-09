@@ -90,7 +90,7 @@ module.exports = {
     }
 
     // Build the gravatar hash from the provided email address and compute the base url
-    var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.toLowerCase().trim()).digest('hex');
+    var gravatarHash = Crypto.createHash('md5').update(inputs.emailAddress.replace(/\s/,'').toLowerCase().trim()).digest('hex');
     var gravatarBaseUrl = 'www.gravatar.com/avatar/' + gravatarHash + '?' + stringifiedQsParams;
 
     if (inputs.useHttps) {

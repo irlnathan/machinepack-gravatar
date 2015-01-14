@@ -17,7 +17,8 @@ module.exports = {
     },
     defaultImage: {
       example: 'http://example.com/images/avatar.jpg',
-      description: 'The image to use if a Gravatar image cannot be found. Useful since it won\'t be clear whether a Gravatar cannot be found until after the image URL is requested.'
+      description: 'The image to use if a Gravatar image cannot be found.',
+      extendedDescription: 'Useful since it won\'t be clear whether a Gravatar cannot be found until after the image URL is requested.  Don\'t forget to include the "http://" or "https://".'
     },
     rating: {
       example: 'g',
@@ -65,7 +66,7 @@ module.exports = {
 
       // "d" stands for "default image".
       // If defaultImage src was provided, encode it for use in a URI
-      d: inputs.defaultImage ? encodeURIComponent(inputs.defaultImage) : undefined,
+      d: inputs.defaultImage ? inputs.defaultImage : undefined,
 
       // Removed support for "forceDefaultImage"
       // if this is important for some reason, it can be brought back.

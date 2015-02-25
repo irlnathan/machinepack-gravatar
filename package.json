@@ -10,7 +10,7 @@
   "author": "Irl Nathan",
   "license": "MIT",
   "dependencies": {
-    "machine": "^1.2.0",
+    "machine": "^4.0.0",
     "lodash": "^2.4.1"
   },
   "repository": {

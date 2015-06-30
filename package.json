@@ -21,9 +21,13 @@
     "machineDir": "machines",
     "machines": [
       "get-image-url"
-    ]
+    ],
+    "testsUrl": "https://travis-ci.org/balderdashy/machinepack-gravatar"
   },
   "devDependencies": {
     "test-machinepack-mocha": "^2.1.1"
+  },
+  "scripts": {
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
   }
 }

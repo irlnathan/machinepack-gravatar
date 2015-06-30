@@ -10,8 +10,8 @@
   "author": "Irl Nathan",
   "license": "MIT",
   "dependencies": {
-    "machine": "^4.0.0",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "machine": "^10.3.1"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
     "machines": [
       "get-image-url"
     ]
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^2.1.1"
   }
 }

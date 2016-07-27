@@ -13,7 +13,7 @@ module.exports = {
     },
     gravatarSize: {
       example: 400,
-      description: 'The height/width of the gravatar in pixels (between 1 and 2048)'
+      description: 'The height/width of the gravatar in pixels (between 1 and 2048).'
     },
     defaultImage: {
       example: 'http://example.com/images/avatar.jpg',
@@ -30,22 +30,18 @@ module.exports = {
     }
   },
 
-  defaultExit: 'success',
-
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
+    success: {
+      outputFriendlyName: 'Gravatar URL',
+      outputDescription: 'The URL that can be used to display a gravatar.',
+      outputExample: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
     },
 
     encodingFailed: {
       description: 'Could not encode/stringify query parameters for the Gravatar URL.'
     },
 
-    success: {
-      description: 'The URL that can be used to display a gravatar.',
-      example: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
-    }
 
   },
 

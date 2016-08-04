@@ -36,19 +36,14 @@ module.exports = {
       outputFriendlyName: 'Gravatar URL',
       outputDescription: 'The URL that can be used to display a gravatar.',
       outputExample: 'http://www.gravatar.com/avatar/f23423d234038345345sf84f7023421'
-    },
-
-    encodingFailed: {
-      description: 'Could not encode/stringify query parameters for the Gravatar URL.'
-    },
-
+    }
 
   },
 
 
   fn: function(inputs, exits) {
 
-    // Depedencies
+    // Import `crypto`, `querystring` and `lodash`
     var Crypto = require('crypto');
     var qs = require('querystring');
     var _ = require('lodash');
@@ -83,7 +78,9 @@ module.exports = {
       stringifiedQsParams = qs.stringify(qsParams);
     }
     catch (e){
-      return exits.encodingFailed(e);
+      // If encoding fails, there's something wrong with the inputs, so return
+      // through the `error` exit.
+      return exits.error('Could not encode/stringify query parameters for the Gravatar URL.');
     }
 
     // Build the gravatar hash from the provided email address and compute the base url

@@ -90,9 +90,9 @@ module.exports = {
       stringifiedQsParams = qs.stringify(qsParams);
     }
     catch (e){
-      // If encoding fails, there's something wrong with the inputs, so return
+      // If encoding fails, there's something wrong with the inputs, so return through the `error` exit.
       // through the `error` exit.
-      return exits.error('Could not encode/stringify query parameters for the Gravatar URL.');
+      return exits.error(new Error('Could not encode/stringify query parameters for the Gravatar URL.'));
     }
 
     // Build the gravatar hash from the provided email address and compute the base url.

@@ -6,7 +6,7 @@
         "emailAddress": "michael.r.mcneil@gmail.com"
       },
       "outcome": "success",
-      "returns": "http://www.gravatar.com/avatar/7751d3f6e0284f4c3a99dcb9009e0a4d?"
+      "returns": "https://www.gravatar.com/avatar/7751d3f6e0284f4c3a99dcb9009e0a4d?"
     },
     {
       "using": {
@@ -19,8 +19,24 @@
     {
       "using": {
         "emailAddress": "michael.r.mcneil@gmail.com",
+        "useHttps": false
+      },
+      "outcome": "success",
+      "returns": "http://www.gravatar.com/avatar/7751d3f6e0284f4c3a99dcb9009e0a4d?"
+    },
+    {
+      "using": {
+        "emailAddress": "michael.r.mcneil@gmail.com",
         "gravatarSize": 400,
         "useHttps": true
+      },
+      "outcome": "success",
+      "returns": "https://www.gravatar.com/avatar/7751d3f6e0284f4c3a99dcb9009e0a4d?s=400"
+    },
+    {
+      "using": {
+        "emailAddress": "michael.r.mcneil@gmail.com",
+        "gravatarSize": 400
       },
       "outcome": "success",
       "returns": "https://www.gravatar.com/avatar/7751d3f6e0284f4c3a99dcb9009e0a4d?s=400"

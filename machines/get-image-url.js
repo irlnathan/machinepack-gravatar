@@ -54,7 +54,7 @@ module.exports = {
       '• MUST be publicly available (e.g. cannot be on an intranet, on a local development machine, behind HTTP Auth or some other firewall etc). Default images are passed through a security scan to avoid malicious content.\n'+
       '• MUST be accessible via HTTP or HTTPS on the standard ports, 80 and 443, respectively.\n'+
       '• MUST have a recognizable image extension (jpg, jpeg, gif, png)\n'+
-      '• MUST NOT include a querystring (if it does, it will be ignored)\n',
+      '• MUST NOT include a querystring (if it does, it will be ignored)',
       moreInfoUrl: 'https://en.gravatar.com/site/implement/images/#default-image'
     },
 

@@ -86,7 +86,7 @@ module.exports = {
   fn: function(inputs, exits) {
     var Crypto = require('crypto');
     var qs = require('querystring');
-    var _ = require('lodash');
+    var _ = require('@sailshq/lodash');
 
 
     // Build querystring parameters for the Gravatar URL.

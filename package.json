@@ -1,6 +1,6 @@
 {
   "name": "machinepack-gravatar",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Communicate with the Gravatar api to get a gravatar image.",
   "keywords": [
     "machinepack",
